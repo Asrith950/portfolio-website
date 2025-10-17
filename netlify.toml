@@ -1,0 +1,26 @@
+# Netlify Configuration File
+# This file tells Netlify how to build and deploy your site
+
+[build]
+  # No build command needed for static HTML sites
+  command = ""
+  # The directory to deploy
+  publish = "."
+
+# Custom headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+
+# Redirect rules (if needed)
+# [[redirects]]
+#   from = "/old-page"
+#   to = "/new-page"
+#   status = 301
+
+# Form handling (if you want to use Netlify Forms)
+# Add netlify attribute to your form: <form netlify>
